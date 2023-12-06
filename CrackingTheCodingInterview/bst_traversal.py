@@ -39,4 +39,46 @@ def inorder_helper(current_node, values):
 
     return values
 
-print(in_order(root))
+def pre_order(root):
+
+# visit the current node
+# traverse the left subtree
+# traverse the right subtree
+    
+    values = []
+
+    return preorder_helper(root, values)
+
+def preorder_helper(current_node, values):
+
+    if not current_node:
+        return None
+    
+    values.append(current_node.val)
+
+    preorder_helper(current_node.left, values)
+
+    preorder_helper(current_node.right, values)
+
+    return values
+
+def post_order(root):
+
+# traverse the left subtree
+# traverse the right subtree
+# visit the current node
+    values = []
+
+    return post_order_helper(root, values)
+
+def post_order_helper(root, values):
+    if not root:
+        return None
+    
+    post_order_helper(root.left, values)
+
+    post_order_helper(root.right, values)
+
+    values.append(root.val)
+
+    return values
